@@ -1,0 +1,141 @@
+  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+
+  :root {
+    --primary-color: #090ab2;
+    --acent-color: #ffd00d;
+    --text-color: #f9f9f6;
+    --background-color: #121212;
+    --card-background-color: #1e1e1e;
+    --text-color-dark: #e0e0e0;
+  }
+
+  #counter {
+    height: 300px;
+    background-color: var(--primary-color);
+    padding: 28px;
+  }
+
+  #border {
+    display: flex;
+    height: 100%;
+    border: 3px solid var(--acent-color);
+  }
+
+  .tick-label {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  #title {
+    width: 300px;
+  }
+
+  #title h1 {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  #title h1.animate {
+    animation: animDcha 1s ease-out forwards;
+  }
+
+  #time {
+    flex: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    align-content: center;
+  }
+
+  .tick {
+    font-size: 1rem;
+    white-space: nowrap;
+    font-family: arial, sans-serif;
+  }
+
+  .tick-group {
+    margin: 0 .5em;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .tick-group.animate {
+    animation: animArriba 0.5s ease-out forwards;
+  }
+
+  .tick-flip,
+  .tick-text-inline {
+    font-size: 2.5em;
+  }
+
+  .tick-label {
+    margin-top: 1em;
+    font-size: 1em;
+  }
+
+  .tick-char {
+    width: 1.5em;
+  }
+
+  .tick-text-inline {
+    display: inline-block;
+    text-align: center;
+    min-width: 1em;
+  }
+
+  .tick-text-inline+.tick-text-inline {
+    margin-left: -.325em;
+  }
+
+  .tick-credits {
+    display: none;
+  }
+
+  @keyframes animArriba {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes animDcha {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    60% {
+      transform: translateX(30%);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateX(-10%);
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 720px) {
+    #border {
+      flex-direction: column;
+    }
+
+    .tick-flip,
+    .tick-text-inline {
+      font-size: 1.5em;
+    }
+  }
